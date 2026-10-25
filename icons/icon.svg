@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d3b5e"/><stop offset="1" stop-color="#03111f"/></linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb08f"/><stop offset="1" stop-color="#e9573f"/></linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3ff0d2"/><stop offset=".55" stop-color="#0e8fa3"/><stop offset="1" stop-color="#0a3d62"/></linearGradient>
+    <clipPath id="c"><circle cx="256" cy="256" r="160"/></clipPath>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <circle cx="256" cy="256" r="220" fill="url(#rim)"/>
+  <circle cx="431.5" cy="328.7" r="11" fill="#0b2a44"/><circle cx="328.7" cy="431.5" r="11" fill="#0b2a44"/><circle cx="183.3" cy="431.5" r="11" fill="#0b2a44"/><circle cx="80.5" cy="328.7" r="11" fill="#0b2a44"/><circle cx="80.5" cy="183.3" r="11" fill="#0b2a44"/><circle cx="183.3" cy="80.5" r="11" fill="#0b2a44"/><circle cx="328.7" cy="80.5" r="11" fill="#0b2a44"/><circle cx="431.5" cy="183.3" r="11" fill="#0b2a44"/>
+  <circle cx="256" cy="256" r="160" fill="url(#sea)"/>
+  <g clip-path="url(#c)">
+    <path d="M96 150 C150 130 190 170 256 150 C320 130 360 170 416 150" stroke="#ffffff" stroke-opacity=".35" stroke-width="10" fill="none"/>
+    <path d="M150 300 C190 250 270 245 320 300 C270 355 190 350 150 300 Z" fill="#fef6ec"/>
+    <path d="M318 300 L366 262 L366 338 Z" fill="#fef6ec"/>
+    <path d="M222 262 C228 280 228 320 222 338" stroke="#0a3d62" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <circle cx="186" cy="292" r="9" fill="#0a3d62"/>
+    <circle cx="140" cy="240" r="12" fill="#fff" fill-opacity=".8"/>
+    <circle cx="124" cy="206" r="7" fill="#fff" fill-opacity=".65"/>
+    <circle cx="134" cy="180" r="4" fill="#fff" fill-opacity=".5"/>
+    <ellipse cx="200" cy="170" rx="70" ry="26" fill="#fff" fill-opacity=".12" transform="rotate(-30 200 170)"/>
+  </g>
+  <circle cx="256" cy="256" r="160" fill="none" stroke="#0b2a44" stroke-width="14"/>
+</svg>

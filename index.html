@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Marine-Dex · Bitàcola de busseig</title>
+  <meta name="description" content="Quadern de bitàcola de busseig gamificat: Marine-Dex, mapa i insígnies.">
+  <meta name="theme-color" content="#03111f">
+  <meta name="color-scheme" content="dark">
+
+  <!-- PWA / Afegeix a la pantalla d'inici -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Marine-Dex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="ocean-bg" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Inici">
+      <img src="icons/icon-192.png" alt="" width="34" height="34">
+      <span>Marine-Dex</span>
+    </a>
+    <button id="syncPill" class="sync-pill" type="button" aria-label="Estat de la sincronització"></button>
+    <button id="settingsBtn" class="icon-btn" type="button" aria-label="Ajustos">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+    </button>
+  </header>
+
+  <main id="app">
+    <section id="v-home" class="view" data-view="home"></section>
+    <section id="v-dex"  class="view" data-view="dex" hidden></section>
+    <section id="v-map"  class="view" data-view="map" hidden>
+      <div class="map-wrap"><div id="map"></div><div class="map-legend"><span class="lg lg-on"></span>Bussejat <span class="lg lg-off"></span>Per descobrir</div></div>
+      <div id="map-below"></div>
+    </section>
+    <section id="v-log"  class="view" data-view="log" hidden></section>
+  </main>
+
+  <nav class="tabbar" aria-label="Navegació principal">
+    <a href="#home" data-tab="home"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Inici</span></a>
+    <a href="#dex" data-tab="dex"><svg viewBox="0 0 24 24"><path d="M3 12c3-5 9-7 14-3l4-3v12l-4-3c-5 4-11 2-14-3z"/><circle cx="8" cy="11" r="1.2" class="fill"/></svg><span>Dex</span></a>
+    <button id="fab" class="fab" type="button" aria-label="Nova immersió"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+    <a href="#map" data-tab="map"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>Mapa</span></a>
+    <a href="#log" data-tab="log"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/></svg><span>Bitàcola</span></a>
+  </nav>
+
+  <div id="sheet" class="sheet" hidden>
+    <div class="sheet-backdrop" data-close></div>
+    <div class="sheet-panel" role="dialog" aria-modal="true">
+      <div class="sheet-grip" data-close></div>
+      <button class="sheet-x" type="button" data-close aria-label="Tancar">✕</button>
+      <div id="sheet-body"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="vendor/topojson-client.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(console.warn));
+    }
+  </script>
+</body>
+</html>

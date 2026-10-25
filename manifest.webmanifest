@@ -1,0 +1,17 @@
+{
+  "name": "Marine-Dex · Bitàcola de busseig",
+  "short_name": "Marine-Dex",
+  "description": "Quadern de bitàcola de busseig gamificat: Marine-Dex, mapa i insígnies.",
+  "lang": "ca",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#03111f",
+  "theme_color": "#03111f",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
