@@ -1,7 +1,7 @@
 {
-  "name": "Marine-Dex · Bitàcola de busseig",
-  "short_name": "Marine-Dex",
-  "description": "Quadern de bitàcola de busseig gamificat: Marine-Dex, mapa i insígnies.",
+  "name": "L&S Diving · Bitàcola de busseig",
+  "short_name": "L&S Diving",
+  "description": "Quadern de bitàcola de busseig gamificat: L&S Diving, mapa i insígnies.",
   "lang": "ca",
   "start_url": "./index.html",
   "scope": "./",
